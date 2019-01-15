@@ -68,7 +68,7 @@ Dieses Skript geh"ort zur Vorlesung „Optimale Regelung und Sch"atzung“ vom H
 Da die Vorlesung erstmal im Sommersemester 2016 gegeben ist, wurde dieses Skript erstmals zusammengestell. Es ist nicht
 ausgeschlossen, dass sich trotz sorgf"altiger Durchsicht noch Fehler verbergen. Wer Lust hat ein wenig Korrektur zu lesen, oder wer Fehler, besonders inhaltlicher Art im Skript entdeckt, teile es mir bitte mit: {\color{blue}\href{mailto:jun.lou.chn@outlook.com}{jun.lou.chn@outlook.com}}\\[5pt]
 Das Skript ist nur für den persönlichen Gebrauch der Studierenden der Mechatrinik/ Elektrotechnik und Informationstechnik am KIT vorgesehen und darf nicht in irgendeiner Art und Weise vervielfältigt oder ver"offentlicht werden. \\[5pt]
-Fur Kritik und Anregungen bin ich jederzeit dankbar.\\[6pt]
+Für Kritik und Anregungen bin ich jederzeit dankbar.\\[6pt]
 \begin{flushright} Jun Lou, am 12. September 2017\\
 in Karlsruhe\end{flushright}
 \setcounter{page}{1}
@@ -247,18 +247,18 @@ $\rightarrow$ \uline{Optimale Zeitvariable Regelung mit St"orgr"o"senunterdr"uck
         node at (8,-0.75) (zt) {\large $\uline{z}(t)$}
         node at (11,-2) (ZFz) {\large}
         node at (6,0) (sieben) {\large $(7)$}
-        node at (-0.3,-2.3) {$-$};
+        node at (-0.4,-1.6) {$-$};
     % link the nodes [vecArrow] and [->] 
     \draw[vecArrow](pt) -- (suma);
     \draw[vecArrow](suma) -- (RB);
-    \draw[vecArrow](RB) -- (ZF);
+    \draw[vecArrow](RB) -- node{$\uline{u}$}(ZF);
     \draw[vecArrow](Pt) -| (suma);
     \draw[vecArrow](x0) -- (6,-1.6);
     \draw[vecArrow](zt) -- (8,-1.6);
     \draw[vecArrow](ZF) --(11,-2) |- (Pt);
     \draw[vecArrow](sieben) -- (pt);
     \draw[vecArrow](sieben) -| (zt);
-    \draw [dashed](-1,-5) rectangle (4,1);
+    \draw [dashed](-1,-5) rectangle (4.2,1);
     \node at (-0.5,-6) [above=5mm, right=0mm] {\text{optimaler LQ-Regler}};
 \end{tikzpicture}\\
 \uline{Anmerkungen}:
@@ -282,16 +282,16 @@ $\rightarrow$ \uline{Optimale Zeitvariable Regelung mit St"orgr"o"senunterdr"uck
             node at (0.3,-2.3) {$-$}
             node at (-0.3,-1.7) {$-$};
         % link the nodes [vecArrow] and [->] 
-        \draw[vecArrow](KZ) -- (suma);
-        \draw[vecArrow](KR) -- (suma);
-        \draw[vecArrow](suma) -- (ZF);
+        \draw[vecArrow](KZ) -- node{$\uline{u}_Z$}(suma);
+        \draw[vecArrow](KR) -- node{$\uline{u}^*$}(suma);
+        \draw[vecArrow](suma) -- node{$\uline{u}$}(ZF);
         \draw[vecArrow](ZF) -- node{$\uline{x}$}(8,-2);
         \draw[vecArrow](7,-2) |- (KR);    
         \draw[innerWhite](6.5,-2) |- (7.5,-2);
         \draw[vecArrow](z) -- (KZ);
         \draw[vecArrow](z) -- (4.5,0) -- (4.5,-1.6);
         \draw[vecArrow](x0) -- (3,-1.6);
-        \draw[dashed](-1,-5) rectangle (1,1);
+        \draw[dashed](-1,-5) rectangle (0.8,1);
         \node at (-0.5,-6) [above=5mm, right=0mm] {LQ-Regler mit station"arer St"orgr"o"senaufschaltung};
     \end{tikzpicture}\\
     (\uline{Achtung}: $\uline{x}(t_e\rightarrow\infty)\neq\uline{0}$ ist m"oglich, da Optimalregler den St"oreinfluss auf $\uline{u}$ und $\uline{x}$ verteilt!)
@@ -354,12 +354,12 @@ $\rightarrow$ \uline{Optimale Zeitvariable Regelung mit St"orgr"o"senunterdr"uck
     \draw[vecArrow](P2) -| (suma1);
     \draw[vecArrow](suma1) -- (RB);
     \draw[vecArrow](RB) -- (suma2);
-    \draw[vecArrow](suma2) -- (ZF);
+    \draw[vecArrow](suma2) -- node{$\uline{u}$}(ZF);
     \draw[vecArrow](ZF) -- node{$\uline{x}$}(10,-2) |-(P2);
     \draw[dashArrow](us) -- (pt);
     \draw[vecArrow](us) -- (suma2);
     \draw[vecArrow](x0) -- (6.5,-1.6);
-    \draw[dashed](-4.5,-5) rectangle (5,1);
+    \draw[dashed](-4.5,-5) rectangle (4.8,1);
     \node at (-1.5,-6) [above=5mm, right=0mm] {Optimaler Folgeregler};
 \end{tikzpicture}\\
 \uline{Anmerkung}: falls nur $\uline{x}_s$ relevant: Wahl von $\uline{u}_s$ so, dass eine Systemtrajektorie durchlaufen wird ($\uline{p}=\uline{0}$) (= \uline{Vorsteuerung})
@@ -808,7 +808,7 @@ $\Rightarrow$ Regelkreis stabil wegen \uline{small gain Theorem} \fbox{s. BB. OR
     bzw. $|| FT_u(\uline{P}_\omega,\uline{K})||_\infty\leq\varepsilon^{-1}$ mit $\uline{P}_\omega=\begin{bmatrix} \uline{\omega P}_{11}&\uline{\omega P}_{12}\\\uline{P}_{21}&\uline{P}_{22}\end{bmatrix}$\\
     dadurch: \uline{Fehler und quantitative Regelkreis-Anforderungen kombinierbar} zu verallgemeinem H$_\infty$-Problem\\
     \uline{Beispiel}: \fbox{s. BB. ORS 2-13, 2-14}
-    \item Verallgemeinerte Strecken im BB ORS 2-11 bei Gesemtbetrachtung aufgrund negativer R"uckf"uhrung ($\uline{e}=\uline{r}-\uline{ky}$) zu modifizieren:\\
+    \item Verallgemeinerte gest"orte Strecken im \fbox{BB ORS 2-11} bei Gesemtbetrachtung aufgrund negativer R"uckf"uhrung ($\uline{e}=\uline{r}-\uline{y}$) zu modifizieren:\\
     z.B. Faktorisierter Fehler $\uline{P}_F=\begin{bmatrix}\uline{0}&\uline{I}\\\uline{M}^{-1}&\uline{G}\\ \boxed{-\uline{M}^{-1}}&\boxed{-\uline{G}}\end{bmatrix}$
 \end{enumerate}
 %-----------------------Subsektion 2.2.5-------------------------%
@@ -817,7 +817,8 @@ $\Rightarrow$ Regelkreis stabil wegen \uline{small gain Theorem} \fbox{s. BB. OR
     \item normalisierte Links-Koprime-Zerlegung der Strecke $\uline{G}$ (vgl. BB. ORS 2-10)\\
     $\uline{G}=\uline{\tilde{M}}^{-1}\uline{\tilde{N}}$
     \item hierf"ur Faktorizierte Fehler zul"assig\\
-    $\uline{P}_F=\begin{bmatrix}\uline{0}&\uline{I}\\\tilde{M}^{-1}&\uline{G}\\ -\tilde{M}^{-1}&-\uline{G}\end{bmatrix}$ \quad (1)
+    $\displaystyle\uline{P}_F=\begin{pmat}[{|}] \uline{0}&\uline{I}\cr \tilde{M}^{-1}&\uline{G} \cr \- -\tilde{M}^{-1}&-\uline{G} \cr
+    \end{pmat}$  \quad (1)
 \end{itemize}
 mit (1) ergibt sich dann ein \uline{optimaler Robuster Regler \uline{R}}, der $FT_0(\uline{P}_F,\uline{0})$ stabilisiert, f"ur den gem"a"s 2.2.4 Gleichung (2) gilt:\\
 \begin{centering}\fbox{$\displaystyle\mathop{\text{inf}}\limits_{\uline{K}}||FT_u(\uline{P}_F,K)||_\infty\stackrel{!}{=}\varepsilon_{max}^{-1}=\gamma_{min}$} \quad (2)\\[2pt] \end{centering}
@@ -825,7 +826,7 @@ mit (1) ergibt sich dann ein \uline{optimaler Robuster Regler \uline{R}}, der $F
 in Praxis: meist \uline{suboptimale L"osung} verwendet:\\[3pt]
 \begin{centering}\fbox{$\displaystyle\mathop{\text{inf}}\limits_{\uline{K}}||FT_u(\uline{P}_F,K)||_\infty\leq\gamma$} \quad ($\gamma>\gamma_{min}$)\\\end{centering}
 nun gilt (vgl. BB. ORS 2-6):\\
-$FT_u(\uline{P}_F,\uline{K})=\uline{P}_{F11}+\uline{P}_{F12}\uline{K}(\uline{I}-\uline{P}_{F12}\uline{K})^{-1}\uline{P}_{F21}=\begin{bmatrix}\uline{0}\\\uline{\tilde{M}}^{-1}\end{bmatrix}+\begin{bmatrix}\uline{I}\\\uline{G}\end{bmatrix}\uline{K}(\uline{I}+\uline{GK})^{-1}(-\uline{\tilde{M}}^{-1})$\\
+$FT_u(\uline{P}_F,\uline{K})=\uline{P}_{F11}+\uline{P}_{F12}\uline{K}(\uline{I}-\uline{P}_{F22}\uline{K})^{-1}\uline{P}_{F21}=\begin{bmatrix}\uline{0}\\\uline{\tilde{M}}^{-1}\end{bmatrix}+\begin{bmatrix}\uline{I}\\\uline{G}\end{bmatrix}\uline{K}(\uline{I}+\uline{GK})^{-1}(-\uline{\tilde{M}}^{-1})$\\
 ${\color{white}FT_u(\uline{P}_F,\uline{K})}=\begin{bmatrix}-\uline{K}(\uline{I}+\uline{GK})^{-1}\uline{\tilde{M}}^{-1}\\\uline{\tilde{M}}^{-1}-\uline{GK}(\uline{I}+\uline{GK})^{-1}\uline{\tilde{M}}^{-1}\end{bmatrix}\stackrel{!}{=}\begin{bmatrix}-\uline{K}\\\uline{I}\end{bmatrix}(\uline{I}+\uline{GK})^{-1}\uline{\tilde{M}}^{-1}$\\
 also: $||FT_u(\uline{P}_F,\uline{K})||_\infty=\bigg|\bigg|\begin{bmatrix}-\uline{K}\\\uline{I}\end{bmatrix}(\uline{I}+\uline{GK})^{-1}\uline{\tilde{M}}^{-1}\bigg|\bigg|_\infty$ \quad (3)\\
 \uline{Problem}: in (3), $\uline{\tilde{M}}^{-1}$ zu bestimmen, nun gilt aber\\
@@ -838,10 +839,10 @@ $\Rightarrow$ (3) $\stackrel{!}{=}\bigg|\bigg|\begin{bmatrix}-\uline{K}\\\uline{
     \item auch Freuquenz-Gewichtung in den Entwurf einbeziehbar: \fbox{s. BB. ORS 2-15, 2-16}
 \end{enumerate}
 \uline{hier}: spezielle L"osung f"ur $\uline{K}$ (ohne Herleitung): \uline{Zentralregler $\uline{K}_0$ Vorgehensweise}: \begin{enumerate}
-    \item Wahl von Grwichtungsmatrix $\omega_1$ und $\omega_2$ (vgl. BB. ORS 2-15, 2-16) f"ur die Strecke ($\rightarrow$ quantitative Regelkreis-Anforderungen)\\
-    (4) $\Rightarrow$ $\mathop{\text{inf}}\limits_{\uline{K}}\bigg|\bigg|\begin{bmatrix}-\uline{K}_\omega\\\uline{I}\end{bmatrix}(\uline{I}+\uline{G}_\omega\uline{K}_\omega)^{-1}[\uline{I},\uline{G}_\omega]\bigg|\bigg|_\infty$ gesucht (5)\\
-    \item Ansatz einer Minimalrealisierung von $\uline{G}_\omega$. \quad $\uline{G}_\omega\tilde{=}\begin{pmat}[{|}]
-    \uline{A}_\omega & \uline{B}_\omega \cr \- \uline{C}_\omega & \uline{D}_\omega \cr \end{pmat} $
+    \item Wahl von Grwichtungsmatrix $W_1$ und $W_2$ (vgl. BB. ORS 2-15, 2-16) f"ur die Strecke ($\rightarrow$ quantitative Regelkreis-Anforderungen)\\
+    (4) $\Rightarrow$ $\mathop{\text{inf}}\limits_{\uline{K}}\bigg|\bigg|\begin{bmatrix}-\uline{K}_W\\\uline{I}\end{bmatrix}(\uline{I}+\uline{G}_W\uline{K}_W)^{-1}[\uline{I},\uline{G}_W]\bigg|\bigg|_\infty$ gesucht (5)\\
+    \item Ansatz einer Minimalrealisierung von $\uline{G}_W$. \quad $\uline{G}_W\tilde{=}\begin{pmat}[{|}]
+    \uline{A}_W & \uline{B}_W \cr \- \uline{C}_W & \uline{D}_W \cr \end{pmat} $
     \item L"osen zweier \uline{allgemeiner algeraischer Riccati-Gleichungen} \fbox{s. BB. ORS 2-17} f"ur 2.:\\
     GCARE$\rightarrow$ $\uline{x}$, GFARE$\rightarrow$ $\uline{z}$ $\Rightarrow$ kleinste obere Schwanke f"ur (5) (ohne Herleitung):\\
     $\displaystyle\gamma_{min}=\frac{1}{\varepsilon_{max}}=\sqrt{\smash[b]{1+\underbrace{\overline{\sigma}^2(\uline{x},\uline{z})}_{Hankel-Norm}}}$ \\[12pt]
@@ -962,12 +963,12 @@ zun"achst: \uline{Entwurf f"ur feste Systemparameter}\begin{itemize}
 \uline{Ermittlung von $\uline{K}$}\begin{enumerate}
     \item \uline{Wahl eines Polbereiches $\Gamma$}\\
     Orientierung an PT$_2$-Parametern, \fbox{s. BB. ORS 2-23} $\Rightarrow$ Forderungen an den Polbereich $\Gamma$ motiviert:\begin{enumerate}
-        \item Einhaltung einer xxxxxxx $d_m$, also $d>d_m$\\
+        \item Einhaltung einer Mindestd"ampfung $d_m$, also $d>d_m$\\
         $\Rightarrow$ \fbox{$\psi\leq\psi_m$}
         \item ($\alpha,\overline{\alpha}$) nicht zu weit rechts liegend ($\Rightarrow$ Regelkreis zu langsam)\\
-        \fbox{$-\alpha_{\omega 0}\leq-a$} \quad (a>0)\\
+        \fbox{$-d_{\omega 0}\leq-a$} \quad (a>0)\\
         Approximation der rechten Grenze\\
-        \uline{Hyperbel $C_1$}: \quad \fbox{$\displaystyle\frac{\eta^2}{a^2}-\frac{\omega^2}{b^2}=1$} \quad (b=a xxxxxxxx $\psi_m$)
+        \uline{Hyperbel $C_1$}: \quad \fbox{$\displaystyle\frac{\eta^2}{a^2}-\frac{\omega^2}{b^2}=1$} \quad ($b = a \cdot tan(\psi_m)$)
         \item $\omega_0$ nicht zu gro"s (sonst Regelkreis zu schnell, d.h. $|u_y|$ zu gro"s)\\
         \fbox{$\omega_0\leq R$} $\Rightarrow$ Gebietsabgrenzung nach links durch \uline{Kreis $C_2$}: \quad \fbox{$\eta^2+\omega^2=R^2$}\\
     \end{enumerate}
@@ -1010,8 +1011,8 @@ zun"achst: \uline{Entwurf f"ur feste Systemparameter}\begin{itemize}
         $\Rightarrow\quad F_2(\eta,\omega) \left \{%
         \begin{array}{ll}
           =0, & \text{auf } C_2\\
-          >0, & \text{rechts von } C_2\\
-          <0, & \text{links von } C_2\\
+          <0, & \text{rechts von } C_2\\
+          >0, & \text{links von } C_2\\
         \end{array} \right.$
     \end{itemize}
     \uline{damit}: $\Gamma$ charakterisiert durch $F_1<0 \cap F_2<0$\\
@@ -1032,20 +1033,20 @@ zun"achst: \uline{Entwurf f"ur feste Systemparameter}\begin{itemize}
           \ll 1, & \text{alle } \lambda_{k\nu}\text{ innerhalb von } \Gamma\\
           \gg 1, & \text{mindestens ein } \lambda_{k\nu} \text{ au"serhalb von } \Gamma\\
         \end{array} \right.$
-    \item \uline{Bestimmung von $\uline{K}$ durch Minimierung von $\Gamma$}\begin{enumerate}
+    \item \uline{Bestimmung von $\uline{K}$ durch Minimierung von $\gamma$}\begin{enumerate}
         \item Wahl einer beliebigen Ausgangsr"uckf"uhrung $\uline{K}_1$ $\Rightarrow$ $\gamma(\uline{K}_0)$
         \item Minimierung von $\gamma(\uline{K})$ (z.B. "uber Gradientenverfahren, s. ODS!) bis $\gamma(\uline{K}_e)\ll1$ (Gradient explizit angebbar, s. F"ollinger 10.32)
     \end{enumerate}
     $\Rightarrow$ Ausgangsr"uckf"uhrung $\uline{u}=-\uline{K}_e\uline{y}$ stellt sicher, dass alle $\lambda_{k\nu}$ $(\nu=1,\cdots,n)$ innerhalb von $\Gamma$ liegen!
 \end{enumerate}
-\uline{Robuste Polbereichsstabilit"at}\\
-Erweiterung des G"utema"ses auf den Multi-Modell-Ansatz von 2.3.1
+\uline{Robuste Polbereichsstabilit"at}: \\
+\quad Erweiterung des G"utema"ses auf den Multi-Modell-Ansatz von 2.3.1
 \[\gamma(\uline{K})=\sum_{\nu=1}^n e^{PF_1(\eta_{k\nu},\omega_{k\nu})}+e^{PF_2(\eta_{k\nu},\omega_{k\nu})}\]
 \[{\color{white}yonglaizhanzishude}\Downarrow \text{ Multi-Modell } M_1,\cdots,M_m\]
 \[\gamma_M(\uline{K})=\sum_{\mu=1}^m\sum_{\nu=1}^n[ e^{PF_1(\eta_{k\nu\mu},\omega_{k\nu\mu})}+e^{PF_2(\eta_{k\nu\mu},\omega_{k\nu\mu})}]\]
 \[{\color{white}jiushiyonglaizhanzishude} \Downarrow \text{ Minimierung von } \gamma_M(\uline{K}) \text{ bzgl. } \uline{K}\]
 \[\uline{\text{Robuste Ausgangsr"uckf"uhrung } \uline{K}}\]
-\uline{Beispiel}: Robuste Regelung der Verladebr"ucke
+\uline{Beispiel}: Robuste Regelung der Verladebr"ucke \fbox{s. BB. ORS 2-24 bis 2-28}
 
 %--------------------------Kapitel 3-----------------------------%
 %-------------------------Sektion 3.1----------------------------%
@@ -1108,10 +1109,10 @@ Ber"ucksichtigung der stochastischen Eigenschaften\begin{enumerate}
     \item Betrachtung von Erwartungswerten\\
     $\Rightarrow$ $\underbrace{E\{s(t)-\overline{s}(t)^2\}}_{\text{Bayes-Risk (Sch"atzrisiken)}}$ $\rightarrow$ Min
     \item Messwertber"ucksichtigung: \uline{bedingte Erwartungswerte}\\
-    $\Rightarrow$ $\underbrace{E\{s(t)-\overline{s}(t)^2|y(t)\}}_{\text{Conditional Bayes-Risk}}$ $\rightarrow$ Min
+    $\Rightarrow$ $\underbrace{E\{\Big(s(t)-\overline{s}(t)\Big)^2|y(t)\}}_{\text{Conditional Bayes-Risk}}$ $\rightarrow$ Min
 \end{enumerate}
 hierzu bedingte Dichtefunktion ben"otigt\\
-$P_{s|y}=P_{s|y}(\xi_{1+})$ xxxxxxxxxxxxxxxxxxxxx\\
+$p_{s|y}=p_{s|y}(\xi_{1+})=p[s(t)|y(t)]$ \\
 optimaler Sch"atzwert\\
 $\displaystyle\frac{d}{d\overline{s}}E\{(s-\overline{s}|y)\}=\frac{d}{d\overline{s}}\int_{-\infty}^{+\infty}(s-\overline{s})^2P[s|y]ds\stackrel{!}{=}0\bigg|_{\overline{s}=\overline{s}_{opt}}$\\
 $\Rightarrow$ $\displaystyle-2\int_{-\infty}^{+\infty}(s-\overline{s}_{opt})p[s|y]ds=0$ bzw. $\displaystyle\underbrace{\int_{-\infty}^{+\infty}sp[s|y]}_{E\{s|y\}}=\overline{s}_{opt}+\underbrace{\int_{-\infty}^{_\infty}p[s|y]ds}_{=1}$\\
@@ -1119,7 +1120,7 @@ $\Rightarrow$ $\displaystyle-2\int_{-\infty}^{+\infty}(s-\overline{s}_{opt})p[s|
 (Beweis f"ur Minimum: $\displaystyle\frac{d^2}{d\overline{s}^2}E\{(s-\overline{s})^2|y\}=2\underbrace{\int_{-\infty}^{+\infty}p[s|y]ds}_{=1}=2>0$)\\
 \uline{Anmerkungen}:\begin{itemize}
     \item $\tilde{s}$ in Sch"atztheorie von besonderer Bedeutung, die \uline{Erwartungstreu}:\\
-    \fbox{$E\{\tilde{s}\}=E_y\bigg\{E_s\{s|y\}\bigg\}\stackrel{!}{=}E\{s\}$} \quad (s. auch sp"ater)
+    \fbox{$E\{\overline{s}\}=E_y\bigg\{E_s\{s|y\}\bigg\}\stackrel{!}{=}E\{s\}$} \quad (s. auch sp"ater)
     \item bei anderem G"utema"s 
     $\displaystyle Q= \left \{%
         \begin{array}{ll}
@@ -1191,14 +1192,14 @@ $\Rightarrow$ $\displaystyle-2\int_{-\infty}^{+\infty}(s-\overline{s}_{opt})p[s|
     $\uline{y}(k)=\uline{C}(k)\uline{x}(k)+\uline{v}(k)$ \quad (6)\\
     f"ur Dynamik: Momente 1. und 2. Ordnung zu betrachten (Gau"s-Zustandsvariablen)\begin{enumerate}
         \item $E\{\uline{x}(k)\}=:\uline{m}_{\uline{x}}(k)$\\
-        (5): $E\{\uline{x}(k+1)\}=\underbrace{E\{\uline{\Phi}(k+1,k)\uline{x}(k)\}}_{\uline{\Phi}(k+1,k)\uline{m}_{\uline{x}}(k)}+\underbrace{E\{\uline{H}(k),\uline{u}(k)\}}_{\uline{H}(k)\uline{u}(k)}+\underbrace{E\{\uline{L}(k)\uline{\omega}(k)\}}_{=\uline{0}}$\\
+        (5): $E\{\uline{x}(k+1)\}=\underbrace{E\{\uline{\Phi}(k+1,k)\uline{x}(k)\}}_{\uline{\Phi}(k+1,k)\uline{m}_{\uline{x}}(k)}+\underbrace{E\{\uline{H}(k)\uline{u}(k)\}}_{\uline{H}(k)\uline{u}(k)}+\underbrace{E\{\uline{L}(k)\uline{\omega}(k)\}}_{=\uline{0}}$\\
         \fbox{$\uline{m}_{\uline{x}}(k+1)=\uline{\Phi}(k+1,k)\uline{m}_{\uline{x}}(k)+\uline{H}(k)\uline{u}(k)$} \quad (7)\\
         \item $E\{[\uline{x}(k)-\uline{m}_{\uline{x}(k)}][\uline{x}(k)-\uline{m}_{\uline{x}(k)}]^T\}=\uline{P}_{\uline{xx}}(k)$\\
         $\uline{P}_{\uline{xx}}(k+1)\stackrel{(5)(7)}{=}E\{[\uline{\Phi}(k+1,k)(\uline{x}(k)-\uline{m}_{\uline{x}}(k))+\uline{H}(k)\underbrace{(\uline{u}(k)-\uline{m}_{\uline{u}}(k))}_{\uline{0}}$\\
         ${\color{white}\uline{P}_{\uline{xx}}(k+1)\stackrel{(5)(7)}{=}}+\uline{L}(k)(\uline{\omega}(k)-\mathop{\sout{\uline{m}_{\uline{\omega}}(k)}}\limits^{=\uline{0}})][\cdots]^T\}$\\
         ${\color{white}\uline{P}_{\uline{xx}}(k+1)\stackrel{(5)(7)}{=}}\uline{\Phi}(k+1,k)\uline{P}_{\uline{xx}}(k)\uline{\Phi}^T(k+1,k)+\uline{L}(k)\mathop{\uline{P}_{\uline{\omega x}}(k)}\limits^{=\uline{0}}\uline{\Phi}^T(k+1,k)$\\
         ${\color{white}\uline{P}_{\uline{xx}}(k+1)\stackrel{(5)(7)}{=}}+\uline{\Phi}(k+1,k)\mathop{\uline{P}_{\uline{\omega x}}(k)}\limits^{=\uline{0}}\uline{L}^T(k)+\uline{L}(k)\uline{P}_{\uline{\omega\omega}}(k)\uline{L}^T(k)$\\
-        $\Rightarrow$ \fbox{$\uline{P}_{\uline{xx}}(k+1)=\uline{\Phi}(k+1,k)\uline{P}_{\uline{xx}}(k)\uline{\Phi}^T(k+1,k)+\uline{L}(k)\uline{P}_{\uline{xx}}(k)\uline{L}^T(k)$} \quad (8)
+        $\Rightarrow$ \fbox{$\uline{P}_{\uline{xx}}(k+1)=\uline{\Phi}(k+1,k)\uline{P}_{\uline{xx}}(k)\uline{\Phi}^T(k+1,k)+\uline{L}(k)\uline{P}_{\uline{\omega\omega}}(k)\uline{L}^T(k)$} \quad (8)
     \end{enumerate}
     \uline{Anmerkung}: Momente f"ur $\uline{y}$ damit ebenfalls bekannt\\
     (6): \fbox{$\uline{m}_{\uline{y}}(k)=\uline{C}(k)\uline{m}_{x}(k)$}\\
@@ -1253,7 +1254,7 @@ Kalman Filter(KF) arbeitet in zwei Schritten\begin{enumerate}
     $\Rightarrow$ \uline{Filterregler des Kalman-Filters}\\[3pt]
     \fbox{\begin{tabular}{ll}
     $\uline{\hat{x}}(k|k)$ & $=\uline{\hat{x}}(k|k-1)+\uline{K}(k)\Big\{\uline{y}(k)-\uline{C}(k)\uline{\hat{x}}(k|k-1)\Big\}$ \\
-    $\uline{P}(k|k)$ & $=\uline{P}(k|k-1)-\uline{K}(k)\uline{C}(k)\uline{P})(k|k-1)$\\
+    $\uline{P}(k|k)$ & $=\uline{P}(k|k-1)-\uline{K}(k)\uline{C}(k)\uline{P}(k|k-1)$\\
     $\uline{K}(k)$ & $=\uline{P}(k|k-1)\uline{C}^T(k)\Big[\uline{C}(k)\uline{P}(k|k-1)\uline{C}^T(k)+\uline{R}(k)\Big]^{-1}$\\
     & $=\uline{P}(k|k)\uline{C}^T(k)\uline{R}^{-1}(k)$
     \end{tabular}} \quad (1)\\
@@ -1262,7 +1263,7 @@ Kalman Filter(KF) arbeitet in zwei Schritten\begin{enumerate}
     \begin{tabular}{ll}
     \uline{gesucht}: & a) $\uline{\hat{x}}(k|k-1)$: \uline{Pr"adiktions-Minimal-Varianz-Sch"atzwert} \uline{Filter}\\
     & b) $\uline{P}(k|k-1)$: \uline{Pr"adiktions-Kovarianz-Matrix} \\
-    & a), b) $\Rightarrow$ \uline{a-posteriori-Dichte} (Pr"adiktionsdichte bestimmt)\\
+    & a), b) $\Rightarrow$ \uline{a-priori-Dichte} (Pr"adiktionsdichte bestimmt)\\
     \end{tabular}\\
     \uline{hier} Signalprozessmodell-Dynamik (vgl. 3.2.2 (A))\\
     a) \fbox{\begin{tabular}{ll}
@@ -1332,16 +1333,16 @@ gemeinsame Darstellung des Filterschritts (online) mit dem Signalprozessmodell \
 \end{itemize}
 $\Rightarrow$ \quad $\uline{x}(k)=\Big(\uline{I}+\uline{A}(k)\Delta k +\uline{O}_1\Big)\uline{x}(k-1)+\Big[\uline{B}(k-1)\Delta k+\uline{O}_{21}\Big]\uline{u}(k-1)$\\
 {\color{white}$\Rightarrow$ \quad $\uline{x}(k)$} $+\Big[\uline{G}(k-1)\Delta k+\uline{O}_{22}\Big]\uline{\omega}(k-1)$\\
-{\color{white} coucouzishu }$\bigg\Downarrow$ Umordnung\\
+\qquad $\bigg\Downarrow$ Umordnung\\
 $\displaystyle\underbrace{\mathop{\text{lim}}\limits_{\Delta k\rightarrow0}\Bigg\{\frac{\uline{x}(k)-\uline{x}(k-1)}{\Delta k}\Bigg\}}_{\uline{\dot{x}}(t)}=\mathop{\text{lim}}\limits_{\Delta k\rightarrow0}\Bigg\{\bigg[\uline{A}(k)+\frac{\uline{O}_1}{\Delta k}\bigg]\uline{x}(k-1)+\bigg[\uline{B}(k-1)+\frac{\uline{O}_{21}}{\Delta k}\bigg]\uline{u}(k-1)$\\
-{\color{white}$\displaystyle\mathop{\text{lim}}\limits_{\Delta k\rightarrow0}\Bigg\{\frac{\uline{x}(k)-\uline{x}(k-1)}{\Delta k}\Bigg\}=$} $\underbrace{{\color{white}\mathop{\text{lim}}\limits_{\Delta k\rightarrow0}}\Bigg\{+\bigg[\uline{G}(k-1)+\frac{\uline{O}_{22}}{\Delta k}\bigg]\uline{\omega}(k-1)\Bigg\}{\color{white}jixucoucouzishubbbb}}_{=\uline{A}(t)\uline{x}(t)+\uline{B}(t)\uline{u}(t)+\uline{G}(t)\uline{\omega}(t)}$\\
+{\color{white}$\displaystyle\mathop{\text{lim}}\limits_{\Delta k\rightarrow0}\Bigg\{\frac{\uline{x}(k)-\uline{x}(k-1)}{\Delta k}\Bigg\}=$} $\underbrace{{\color{white}\mathop{\text{lim}}\limits_{\Delta k\rightarrow0}}\Bigg\{+\bigg[\uline{G}(k-1)+\frac{\uline{O}_{22}}{\Delta k}\bigg]\uline{\omega}(k-1)\Bigg\}}_{=\uline{A}(t)\uline{x}(t)+\uline{B}(t)\uline{u}(t)+\uline{G}(t)\uline{\omega}(t)}$\\
 \clearpage
 \uline{Anwendung auf Kalman-Filter}\\\begin{enumerate}
     \item \uline{Minimal-Varianz-Sch"atzwert}\\
     Kalman-Filter f"ur Filterung und Pr"adition zusammengefasst\\
     $\uline{\hat{x}}(k|k)=\uline{\Phi}(k,k-1)\uline{\hat{x}}(k-1|k-1)+\uline{H}(k-1)\uline{u}(k-1)$\\
     {\color{white}$\uline{\hat{x}}(k|k)$} $+\uline{K}(k)\Big\{ \uline{y}(k)-\uline{C}(k)\uline{\Phi}(k,k-1)\uline{\hat{x}}(k-1|k-1)-\uline{C}(k)\uline{H}(k-1)\uline{u}(k-1)\Big\}$\\
-    {\color{white} coucouzishu }$\bigg\Downarrow$ Vorgehen gem. (3), (4)\\
+    \qquad \qquad $\bigg\Downarrow$ Vorgehen gem. (3), (4)\\
     {\color{white}$\uline{\hat{x}}(k|k)$} $=\Big[\uline{I}+\uline{A}(k)\Delta k +\uline{O}_1\Big]\uline{\hat{x}}(k-1|k-1)+\Big[\uline{B}(k-1)\Delta k+\uline{O}_{21}\Big]\uline{u}(k-1)$\\
     {\color{white}$\uline{\hat{x}}(k|k)$} $+\uline{K}(k)\Big\{ \uline{y}(k)-\uline{C}(k)\Big[\uline{I}+\uline{A}(k)\Delta k +\uline{O}_1\Big]\uline{\hat{x}}(k-1|k-1)$\\
     {\color{white}$\uline{\hat{x}}(k|k)+\uline{K}(k)\Big\{ \uline{y}(k)$} $-\uline{C}(k)\Big[\uline{B}(k-1)\Delta k+\uline{O}_{21}\Big]\uline{u}(k-1)\Big\}$\\
@@ -1359,7 +1360,7 @@ $\displaystyle\underbrace{\mathop{\text{lim}}\limits_{\Delta k\rightarrow0}\Bigg
     Konstruktion der Gleichungen f"ur $\uline{P}(k|k)$ und $\uline{P}(k|k-1)$:\\
     $\uline{P}(k|k)=\Big[\uline{\Phi}(k,k-1)\uline{P}(k-1|k-1)\uline{\Phi}^T(k,k-1)+\uline{L}(k-1)\uline{Q}(k-1)\uline{L}^T(k-1)\Big]$\\
     {\color{white} $\uline{P}(k|k)$} $+\uline{K}(k)\uline{C}(k)\Big[\cdots\Big]$\\
-    {\color{white}coucouzishu}$\bigg\Downarrow$ (3), (4) und Umordnung\\
+    \qquad \qquad$\bigg\Downarrow$ (3), (4) und Umordnung\\
     $\displaystyle\frac{\uline{P}(k|k)-\uline{P}(k-1|k-1)}{\Delta k}=\Big[\uline{A}(k)\uline{P}(k-1|k-1)+\cdots+\uline{P}(k-1|k-1)\uline{A}^T(k)$\\
     {\color{white} $\displaystyle\frac{\uline{P}(k|k)-\uline{P}(k-1|k-1)}{\Delta k}$} $+\cdots+\uline{G}(k-1)(\uline{Q}(k-1)\Delta k)\uline{G}^T(k-1)+\cdots\Big]$\\
     {\color{white} $\displaystyle\frac{\uline{P}(k|k)-\uline{P}(k-1|k-1)}{\Delta k}$} $\displaystyle-\frac{\uline{K}(k)}{\Delta k}\uline{C}(k)\Big[\uline{P}(k-1|k-1)+\cdots\Big]$\\
@@ -1377,6 +1378,7 @@ zwei Datenquellen\\
         (-0.8,-1.3) rectangle (0.8,-1.9)
         (6.7,-0.3) rectangle (8.3,-1.3)
         node at (0,0) {INS}
+        node at (-2, -1.6) {$n(t)$}
         node at (0,-1.6) {Radar}
         node at (7.5,-0.8) {KBF}
         node at (3,-0.8) [sum] (sum) {}
@@ -1398,6 +1400,7 @@ zwei Datenquellen\\
     \draw [->] (sum) -- node {$z(t)=\delta p(t)-n(t)$} (6.7,-0.8);
     \draw [->] (8.3,-0.8) -- node {$\delta\hat{p}(t)$} (9.5,-0.8);
     \draw [->] (11.2,-2)--  (11.2,-0.8);
+    \draw [->] (-1.6, -1.6) -- (-0.8,-1.6);
 \end{tikzpicture}\\[3pt]
 \begin{tikzpicture}[auto, node distance=2cm, >=triangle 45]
     \draw 
@@ -1427,11 +1430,11 @@ $\Rightarrow$ $\uline{\dot{x}}=\uline{Ax}=\begin{bmatrix} 0&1&0\\0&0&1\\0&0&0\en
 \section{Synthese optimaler Sch"atzeinrichtungen f"ur nichtlinearen Systeme}
 \begin{tabular}{ll}
     jetzt: nichtlineare Signalprozessmodelle berechnet: & $\uline{\dot{x}}=\uline{f}(\uline{x},\uline{u},\uline{\omega},t)$\\
-    & $\uline{y}=\uline{g}(\uline{x},\uline{v},t)$
+    & $\uline{y}=\uline{g}(\uline{x},\uline{v},t)$\\&\\
+    & (Gr"o"sen unver"andert zu 3.3)
 \end{tabular} \quad (1)\\[3pt]
-{\color{white} couzishucouzishucouzishucoudaozhuangtaifangc} (Gr"o"sen unver"andert zu 3.3)\\
 exakte L"osung: nichtlineare Fehler erfordlich\\
-($\rightarrow$ L"osung nichtlineare Povheller Dgln. im Praxis zu aufwendig) (s. z.B. [Kre80])\\
+($\rightarrow$ L"osung nichtlineare partielle Dgln. im Praxis zu aufwendig) (s. z.B. [Kre80])\\
 $\Rightarrow$ \uline{Approximative Filter}
 %------------------------Sektion 3.4.1---------------------------%
 \subsection{Approximative Filter mit Linearisierung}
@@ -1482,7 +1485,7 @@ $x(k+1)=f(x(k))=a_0+a_1x(k)+a_2x^2(k)$ \quad (1)\\
 es gilt: $E\{x(k)\}=0$, $E\{x^2(k)\}=\sigma^2$\\
 $\Rightarrow$ exakte Momente f"ur (1): \begin{itemize}
     \item $E\{x(k+1)\}=a_0+a_2\sigma^2$ \quad (2)
-    \item $E\{x^2(k+1)\}=a_0^2+(2a_0a_2+a_1^2)\sigma^2+\cdots$ \quad (3)
+    \item $E\{x^2(k+1)\}=a_0^2+(2a_0a_2+a_1^2)\sigma^2+a_2^2\sigma^4+\cdots$ \quad (3)
 \end{itemize}
 \begin{enumerate}
     \item \uline{Wahl Sigma-Punkte}\\
